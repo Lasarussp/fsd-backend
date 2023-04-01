@@ -14,7 +14,7 @@ db();
 app.use(express.json()); 
 
 app.get('/', (req, res) => {
-    res.send('Welcome to my App');
+    res.send('Welcome to my Employee App 🎉🎊✨');
 });
 
 
