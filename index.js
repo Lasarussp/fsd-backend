@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const db = require('./db/connect');
 const cors = require('cors');
+const db = require('./db/connect');
 
 //Importing routes;
 const employeeRoutes = require('./routes/employees.route');
@@ -16,9 +16,8 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Welcome to my Employee App 🎉🎊✨');
+    res.send('Welcome to My Employee App✨🎉🎊');
 });
-
 
 //custom middleware
 app.use(employeeRoutes);

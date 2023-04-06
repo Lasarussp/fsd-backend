@@ -4,10 +4,10 @@ const Employees = require('../model/employees.model');
 const router = express.Router();
 
 //To get all employees
-
 router.get('/employees', (req, res) => {
     try{
-        const { email } = req.query;       
+        const { email } = req.query;
+        
         if(email){
             Employees.find({email}, (err, data) => {
                 if(err){
@@ -23,13 +23,12 @@ router.get('/employees', (req, res) => {
                 return res.status(200).send(data);
             })
         }
-    }catch(error) {
+    }catch(error){
         res.status(500).send({message: 'Internal Server Error'});
     }
 });
 
 //To get a single employee details
-
 router.get('/employees/:empID', (req, res) => {
     try{
         Employees.findOne({_id: req.params.empID},(err, data) => {
@@ -43,8 +42,8 @@ router.get('/employees/:empID', (req, res) => {
     }
 });
 
-//To add a new employee
 
+//To add a new employee
 router.post('/employees', (req, res) => {
     try{
         const data = req.body;
@@ -61,7 +60,6 @@ router.post('/employees', (req, res) => {
 });
 
 //To update an existing employee
-
 router.put('/employees/:empID', (req, res) => {
     try{
         const employeeID = req.params.empID;
@@ -77,7 +75,6 @@ router.put('/employees/:empID', (req, res) => {
 });
 
 //To delete an employee
-
 router.delete('/employees/:empID', (req, res) => {
     try{
         const employeeID = req.params.empID;
